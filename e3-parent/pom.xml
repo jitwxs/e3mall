@@ -25,6 +25,10 @@
         <mybatis-plus.version>2.1.9</mybatis-plus.version>
         <!-- Spring包 -->
         <spring.version>5.0.4.RELEASE</spring.version>
+        <!-- 服务中间件 -->
+        <dubbo.version>2.6.1</dubbo.version>
+        <zookeeper.version>3.5.2-alpha</zookeeper.version>
+        <curator.version>4.0.1</curator.version>
         <!-- JSP包 -->
         <jstl.version>1.2</jstl.version>
         <servlet-api.version>2.5</servlet-api.version>
@@ -135,6 +139,28 @@
                 <artifactId>spring-tx</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <!-- 服务中间件 -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${curator.version}</version>
+            </dependency>
             <!-- jsp包 -->
             <dependency>
                 <groupId>jstl</groupId>
@@ -180,18 +206,5 @@
                 </configuration>
             </plugin>
         </plugins>
-
-        <!-- 集中插件管理 -->
-        <pluginManagement>
-            <plugins>
-                <!-- Tomcat插件 -->
-                <plugin>
-                    <groupId>org.apache.tomcat.maven</groupId>
-                    <artifactId>tomcat8-maven-plugin</artifactId>
-                    <version>2.2</version>
-                </plugin>
-            </plugins>
-
-        </pluginManagement>
     </build>
 </project>
