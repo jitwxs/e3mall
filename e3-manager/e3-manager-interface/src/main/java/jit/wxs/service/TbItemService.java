@@ -12,5 +12,8 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2018-03-21
  */
 public interface TbItemService extends IService<TbItem> {
-
+    /**
+     * 插入商品
+     */
+    boolean insert(TbItem item, String desc);
 }

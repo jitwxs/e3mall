@@ -1,9 +1,11 @@
 package jit.wxs.pojo;
 
-import com.baomidou.mybatisplus.enums.IdType;
-import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.enums.IdType;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -49,6 +51,7 @@ public class TbContentCategory implements Serializable {
     /**
      * 创建时间
      */
+    @TableField(update="now()")
     private Date updated;
 
 

@@ -8,8 +8,8 @@ http://www.springframework.org/schema/beans/spring-beans.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 加载数据库配置文件 -->
-    <context:property-placeholder location="classpath:db.properties"/>
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath:manager-service.properties"/>
 
     <!-- druid -->
     <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
@@ -71,7 +71,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
     <bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
         <!-- 主键类型  0="数据库ID自增", 1="用户输入ID",2="全局唯一ID (数字类型唯一ID)", 3="全局唯一ID -->
-        <property name="idType" value="0"/>
+        <!--<property name="idType" value="2"/>-->
         <!-- 全局表为下划线命名设置 true -->
         <property name="dbColumnUnderline" value="true"/>
     </bean>

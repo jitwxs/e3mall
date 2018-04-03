@@ -1,7 +1,9 @@
 package jit.wxs.pojo;
 
-import java.util.Date;
+import com.baomidou.mybatisplus.annotations.TableField;
+
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * <p>
@@ -42,6 +44,7 @@ public class TbOrder implements Serializable {
     /**
      * 订单更新时间
      */
+    @TableField(update="now()")
     private Date updateTime;
     /**
      * 付款时间

@@ -1,0 +1,47 @@
+package jit.wxs.web;
+
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import jit.wxs.common.pojo.EasyUITreeNode;
+import jit.wxs.pojo.TbItemCat;
+import jit.wxs.service.TbItemCatService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * 商品分类Controller
+ * @author jitwxs
+ * @date 2018/4/4 0:05
+ */
+@RestController
+@RequestMapping("/item/cat")
+public class ItemCatController {
+    @Autowired
+    private TbItemCatService tbItemCatService;
+
+    /**
+     * 商品类目树
+     */
+    @PostMapping("/list")
+    public List<EasyUITreeNode> getItemCat(@RequestParam(required = false, defaultValue = "0") Long id) {
+        List<TbItemCat> itemCats = tbItemCatService.selectList(new EntityWrapper<TbItemCat>()
+                .eq("parent_id", id));
+
+        List<EasyUITreeNode> result = new ArrayList<>();
+
+        for (TbItemCat itemCat : itemCats) {
+            EasyUITreeNode treeNode = new EasyUITreeNode();
+            treeNode.setId(itemCat.getId());
+            treeNode.setText(itemCat.getName());
+            treeNode.setState(itemCat.getIsParent() == 1 ? "closed" : "open");
+
+            result.add(treeNode);
+        }
+        return result;
+    }
+}

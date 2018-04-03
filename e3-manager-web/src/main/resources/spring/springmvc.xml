@@ -10,17 +10,24 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath:manager-web.properties"/>
+
     <!-- 扫描组件 -->
     <context:component-scan base-package="jit.wxs.web"/>
 
     <!-- 注解驱动 -->
     <mvc:annotation-driven />
 
-    <!-- 全局异常类 -->
-    <!--<bean class="cn.edu.jit.exception.GlobalExceptionResolver"/>-->
-
     <!-- 加载静态资源，不开启会被拦截 -->
     <mvc:default-servlet-handler />
+
+    <!-- 配置多媒体解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8" />
+        <!-- 文件上传最大值 5MB -->
+        <property name="maxUploadSize" value="5242880"/>
+    </bean>
 
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -32,8 +39,13 @@
     <!-- 使用方应用信息，用于计算依赖关系 -->
     <dubbo:application name="e3-manager-web"/>
     <!-- 指定zookeeper的地址，集群用逗号分隔 -->
-    <dubbo:registry protocol="zookeeper" address="192.168.30.149:2181"/>
+    <dubbo:registry protocol="zookeeper" address="${zookeeper.address}"/>
     <!-- 申明要访问的接口，并创建代理对象，注入bean，名为id的值 -->
+    <!-- 注册于e3-manager-service -->
     <dubbo:reference interface="jit.wxs.service.TbItemService" id="tbItemService" />
+    <dubbo:reference interface="jit.wxs.service.TbItemDescService" id="tbItemDescService"/>
     <dubbo:reference interface="jit.wxs.service.TbItemCatService" id="tbItemCatService" />
+    <!-- 注册于e3-content-service -->
+    <dubbo:reference interface="jit.wxs.content.service.TbContentService" id="tbContentService" />
+    <dubbo:reference interface="jit.wxs.content.service.TbContentCategoryService" id="tbContentCategoryService" />
 </beans>

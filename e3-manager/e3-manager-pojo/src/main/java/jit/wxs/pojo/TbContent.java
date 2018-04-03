@@ -1,5 +1,6 @@
 package jit.wxs.pojo;
 
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
 import com.baomidou.mybatisplus.enums.IdType;
 
@@ -8,9 +9,8 @@ import java.util.Date;
 
 /**
  * <p>
- * 
+ * 商品内容
  * </p>
- *
  * @author jitwxs
  * @since 2018-03-21
  */
@@ -53,6 +53,7 @@ public class TbContent implements Serializable {
      */
     private String content;
     private Date created;
+    @TableField(update="now()")
     private Date updated;
 
 
