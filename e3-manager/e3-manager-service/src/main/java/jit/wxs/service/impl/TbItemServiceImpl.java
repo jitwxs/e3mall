@@ -4,8 +4,10 @@ import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import jit.wxs.common.utils.IDUtils;
 import jit.wxs.mapper.TbItemDescMapper;
 import jit.wxs.mapper.TbItemMapper;
+import jit.wxs.mapper.TbItemParamItemMapper;
 import jit.wxs.pojo.TbItem;
 import jit.wxs.pojo.TbItemDesc;
+import jit.wxs.pojo.TbItemParamItem;
 import jit.wxs.service.TbItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,8 +30,11 @@ public class TbItemServiceImpl extends ServiceImpl<TbItemMapper, TbItem> impleme
     @Autowired
     private TbItemDescMapper itemDescMapper;
 
+    @Autowired
+    private TbItemParamItemMapper itemParamItemMapper;
+
     @Override
-    public boolean insert(TbItem item, String desc) {
+    public boolean insert(TbItem item, String desc, String itemParams) {
         Date date = new Date();
 
         long id = IDUtils.genItemId();
@@ -47,6 +52,13 @@ public class TbItemServiceImpl extends ServiceImpl<TbItemMapper, TbItem> impleme
         itemDesc.setUpdated(date);
         int j = itemDescMapper.insert(itemDesc);
 
-        return i == 1 && j == 1;
+        TbItemParamItem itemParamItem = new TbItemParamItem();
+        itemParamItem.setItemId(id);
+        itemParamItem.setParamData(itemParams);
+        itemParamItem.setCreated(date);
+        itemParamItem.setUpdated(date);
+        int k = itemParamItemMapper.insert(itemParamItem);
+
+        return i == 1 && j == 1 && k == 1;
     }
 }

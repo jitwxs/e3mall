@@ -11,10 +11,10 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 加载配置文件 -->
-    <context:property-placeholder location="classpath:protal-web.properties"/>
+    <context:property-placeholder location="classpath:portal-web.properties"/>
 
     <!-- 扫描组件 -->
-    <context:component-scan base-package="jit.wxs.protal.web"/>
+    <context:component-scan base-package="jit.wxs.portal.web"/>
 
     <!-- 注解驱动 -->
     <mvc:annotation-driven />
@@ -27,9 +27,10 @@
 
     <!-- 引用dubbo服务 -->
     <!-- 使用方应用信息，用于计算依赖关系 -->
-    <dubbo:application name="e3-protal-web"/>
+    <dubbo:application name="e3-portal-web"/>
     <!-- 指定zookeeper的地址，集群用逗号分隔 -->
     <dubbo:registry protocol="zookeeper" address="${zookeeper.address}"/>
     <!-- 申明要访问的接口，并创建代理对象，注入bean，名为id的值 -->
-    <!--<dubbo:reference interface="jit.wxs.service.TbItemService" id="tbItemService" />-->
+    <!-- 注册于e3-content-service -->
+    <dubbo:reference interface="jit.wxs.content.service.TbContentService" id="tbContentService" />
 </beans>

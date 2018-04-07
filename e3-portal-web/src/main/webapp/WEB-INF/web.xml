@@ -3,24 +3,24 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
-    <display-name>e3-protal-web</display-name>
-    
+    <display-name>E3 Portal Web Application</display-name>
+
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
 
     <!-- Spring MVC 前端控制器 -->
     <servlet>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>e3-portal-web</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring/springmvc.xml</param-value>
         </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
-        <!-- 伪静态化 -->
+        <servlet-name>e3-portal-web</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 

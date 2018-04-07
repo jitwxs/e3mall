@@ -1,4 +1,4 @@
-package jit.wxs.web;
+package jit.wxs.web.item;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import jit.wxs.common.pojo.EasyUITreeNode;

@@ -1,9 +1,9 @@
 package jit.wxs.content.service.impl;
 
-import jit.wxs.pojo.TbContent;
-import jit.wxs.mapper.TbContentMapper;
-import jit.wxs.content.service.TbContentService;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import jit.wxs.content.service.TbContentService;
+import jit.wxs.mapper.TbContentMapper;
+import jit.wxs.pojo.TbContent;
 import org.springframework.stereotype.Service;
 
 /**
@@ -16,5 +16,4 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class TbContentServiceImpl extends ServiceImpl<TbContentMapper, TbContent> implements TbContentService {
-
 }

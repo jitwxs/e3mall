@@ -1,4 +1,4 @@
-package jit.wxs.web;
+package jit.wxs.web.item;
 
 import com.baomidou.mybatisplus.plugins.Page;
 import jit.wxs.common.pojo.EasyUIDataGrid;
@@ -55,14 +55,12 @@ public class ItemController {
      * @param desc 商品描述
      */
     @PostMapping("/save")
-    public E3Result saveItem(TbItem item, String desc) {
-        boolean flag = tbItemService.insert(item, desc);
+    public E3Result saveItem(TbItem item, String desc, String itemParams) {
+        boolean flag = tbItemService.insert(item, desc, itemParams);
         if (flag) {
             return E3Result.ok();
         } else {
-            return E3Result.build(404, "插入失败");
+            return E3Result.error("插入失败");
         }
     }
-
-
 }

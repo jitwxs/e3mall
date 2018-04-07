@@ -1,7 +1,7 @@
 package jit.wxs.content.service;
 
-import jit.wxs.pojo.TbContent;
 import com.baomidou.mybatisplus.service.IService;
+import jit.wxs.pojo.TbContent;
 
 /**
  * <p>
@@ -12,5 +12,4 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2018-03-21
  */
 public interface TbContentService extends IService<TbContent> {
-
 }

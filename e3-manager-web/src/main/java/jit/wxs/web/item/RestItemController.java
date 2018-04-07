@@ -1,4 +1,4 @@
-package jit.wxs.web;
+package jit.wxs.web.item;
 
 import jit.wxs.common.utils.E3Result;
 import jit.wxs.pojo.TbItem;
@@ -28,7 +28,7 @@ public class RestItemController {
     public E3Result getItemDesc(@PathVariable long id) {
         TbItemDesc itemDesc = tbItemDescService.selectById(id);
         if (itemDesc == null) {
-            return E3Result.build(404, "获取商品描述失败");
+            return E3Result.error("获取商品描述失败");
         } else {
             return E3Result.ok(itemDesc.getItemDesc());
         }

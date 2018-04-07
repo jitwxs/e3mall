@@ -2,29 +2,19 @@
 
 ### 技术栈
 
-- 项目环境采用`IDEA` + `Tomcat 8` + `JDK 8` + `MySQL 5.5`，数据库采用`Druid`。
+- 项目环境采用`IDEA` + `MAVEN` + `Tomcat` + `MySQL`，数据库连接池采用`Druid`
 
-- 采用传统`SSM`架构，使用`MP(Mybatis-plus)`替代`MyBatis`，DAO操作更简单。
+- 后台采用SSM，使用`MP(Mybatis-plus)`替代`MyBatis`
 
-- 模块化开发，使用`Zookeeper`进行服务治理。
+- 采用`SOA` 架构，使用`Zookeeper`进行服务治理
 
-- 图片服务器使用`腾讯云`替代`FastDFS`，减少服务器配置。
+- 图片服务器使用`腾讯云`替代`FastDFS`
 
 #### 运行项目
 
 1. 首先需要一台Linux服务器或虚拟机，并在上面搭建Zookeeper服务，搭建可以参考文章：[Dubbo + Zookeeper入门初探](https://blog.csdn.net/yuanlaijike/article/details/79654183)
-2. 数据库相关
-（1）`e3-manager-service`中的`manager-service.properties`
-（2）`e3-content-service`中的`manager-service.properties`
-3. zookeeper与dubbo相关
-（1）`e3-manager-service`中的`manager-service.properties`
-（2）`e3-content-service`中的`manager-service.properties`
-（3）`e3-manager-web`中的`manager-web.properties`
-（4）`e3-protal-web`中的`protal-web.properties`
-4. 腾讯云COS相关
-（1）改`e3-manager-web`中的`manager-web.properties`
 
-启动Zookeepr服务后，先运行所有service模块，再运行所有web模块（注意IDEA tomcat启动时地址不能重复）
+2. 等待添加
 
 ### 系统架构
 

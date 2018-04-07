@@ -33,20 +33,28 @@ public class E3Result implements Serializable {
      */
     private Object data;
 
-    public static E3Result build(Integer status, String msg, Object data) {
-        return new E3Result(status, msg, data);
-    }
-
     public static E3Result ok(Object data) {
-        return new E3Result(data);
+        return E3Result.build(200,"OK",data);
     }
 
     public static E3Result ok() {
-        return new E3Result(null);
+        return E3Result.build(200,"OK",null);
+    }
+
+    public static E3Result error(String msg) {
+        return E3Result.build(404,msg,null);
+    }
+
+    public static E3Result error(String msg, Object data) {
+        return E3Result.build(404,msg,data);
     }
 
     public E3Result() {
 
+    }
+
+    public static E3Result build(Integer status, String msg, Object data) {
+        return new E3Result(status, msg, data);
     }
 
     public static E3Result build(Integer status, String msg) {
@@ -56,12 +64,6 @@ public class E3Result implements Serializable {
     private E3Result(Integer status, String msg, Object data) {
         this.status = status;
         this.msg = msg;
-        this.data = data;
-    }
-
-    private E3Result(Object data) {
-        this.status = 200;
-        this.msg = "OK";
         this.data = data;
     }
 

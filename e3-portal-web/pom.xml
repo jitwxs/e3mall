@@ -1,25 +1,22 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <parent>
-        <artifactId>e3-manager</artifactId>
+        <artifactId>e3-parent</artifactId>
         <groupId>jit.wxs</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
-
-    <artifactId>e3-protal-web</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>e3-portal-web</artifactId>
     <packaging>war</packaging>
-
+    <version>1.0-SNAPSHOT</version>
+    <name>e3-portal-web Maven Webapp</name>
+    <url>http://maven.apache.org</url>
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>jit.wxs</groupId>-->
-            <!--<artifactId>e3-manager-interface</artifactId>-->
-            <!--<version>1.0-SNAPSHOT</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>jit.wxs</groupId>
+            <artifactId>e3-content-interface</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!-- Spring包 -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -103,5 +100,17 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-
+    <!-- 配置tomcat插件 -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.tomcat.maven</groupId>
+                <artifactId>tomcat7-maven-plugin</artifactId>
+                <configuration>
+                    <path>/</path>
+                    <port>8080</port>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

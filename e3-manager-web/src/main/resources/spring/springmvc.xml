@@ -43,6 +43,7 @@
     <!-- 申明要访问的接口，并创建代理对象，注入bean，名为id的值 -->
     <!-- 注册于e3-manager-service -->
     <dubbo:reference interface="jit.wxs.service.TbItemService" id="tbItemService" />
+    <dubbo:reference interface="jit.wxs.service.TbItemParamService" id="rbItemParamService" />
     <dubbo:reference interface="jit.wxs.service.TbItemDescService" id="tbItemDescService"/>
     <dubbo:reference interface="jit.wxs.service.TbItemCatService" id="tbItemCatService" />
     <!-- 注册于e3-content-service -->

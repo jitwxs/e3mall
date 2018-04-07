@@ -15,5 +15,5 @@ public interface TbItemService extends IService<TbItem> {
     /**
      * 插入商品
      */
-    boolean insert(TbItem item, String desc);
+    boolean insert(TbItem item, String desc,  String itemParams);
 }

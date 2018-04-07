@@ -32,7 +32,7 @@ public class PictureController {
     @Value("${cos.bucketName}")
     private String bucketName;
 
-    @Value("${pic.upload}")
+    @Value("${cos.pic.upload}")
     private String picUploadPath;
 
     /**
