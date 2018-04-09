@@ -45,18 +45,18 @@ public class ContentController {
     @PostMapping("/delete")
     public E3Result deleteContents(Long[] ids) {
         for (Long id : ids) {
-            if (id != null) {
-                tbContentService.deleteById(id);
-            }
+            tbContentService.deleteById(id);
         }
         return E3Result.ok();
     }
 
     @PostMapping("/save")
     public E3Result saveContent(TbContent content) {
-        content.setCreated(new Date());
-        content.setUpdated(new Date());
-        tbContentService.insert(content);
+        if(content.getCategoryId() == null) {
+            return E3Result.error(null);
+        }
+
+        tbContentService.addContent(content);
         return E3Result.ok();
     }
 }

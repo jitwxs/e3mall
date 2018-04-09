@@ -6,15 +6,22 @@
 
 - 后台采用SSM，使用`MP(Mybatis-plus)`替代`MyBatis`
 
-- 采用`SOA` 架构，使用`Zookeeper`进行服务治理
+- 采用`SOA` 架构，使用`Dubbo` + `Zookeeper`进行服务治理
 
 - 图片服务器使用`腾讯云`替代`FastDFS`
 
 #### 运行项目
 
-1. 首先需要一台Linux服务器或虚拟机，并在上面搭建Zookeeper服务，搭建可以参考文章：[Dubbo + Zookeeper入门初探](https://blog.csdn.net/yuanlaijike/article/details/79654183)
+（1）Linux服务器需要搭建Zookeeper、Redis、Tomcat环境。
 
-2. 等待添加
+- [Linux搭建JavaWeb开发环境（Java、Tomcat、MySQL）](https://blog.csdn.net/yuanlaijike/article/details/78877830)
+
+- [Dubbo + Zookeeper入门初探](https://blog.csdn.net/yuanlaijike/article/details/79654183)
+
+- [Redis初探（6）——Redis集群](https://blog.csdn.net/yuanlaijike/article/details/79860099)
+
+（2）修改数据库、Zookeeper、Redis、腾讯云COS的配置信息
+
 
 ### 系统架构
 

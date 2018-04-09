@@ -25,8 +25,8 @@ public class PageController {
 
     @RequestMapping("/index")
     public String showIndex(Model model) {
-        List<TbContent> ad1List = tbContentService.selectList(new EntityWrapper<TbContent>()
-                .eq("category_id", ad1Id));
+        // 得到首页大轮播图的List
+        List<TbContent> ad1List = tbContentService.listByCategoryId(ad1Id);
 
         model.addAttribute("ad1List", ad1List);
         return "index";

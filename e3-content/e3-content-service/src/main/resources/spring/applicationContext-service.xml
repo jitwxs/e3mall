@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- 加载配置文件 -->
-    <context:property-placeholder location="classpath:content-service.properties"/>
+    <context:property-placeholder location="classpath:cfg.properties"/>
 
     <!-- 扫描service层注解 -->
     <context:component-scan base-package="jit.wxs.content.service"/>

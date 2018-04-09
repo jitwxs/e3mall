@@ -11,7 +11,7 @@
         http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <!-- 加载配置文件 -->
-    <context:property-placeholder location="classpath:portal-web.properties"/>
+    <context:property-placeholder location="classpath:cfg.properties"/>
 
     <!-- 扫描组件 -->
     <context:component-scan base-package="jit.wxs.portal.web"/>
