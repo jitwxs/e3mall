@@ -58,7 +58,7 @@ http://www.springframework.org/schema/context/spring-context.xsd">
         <!-- 加载Mybatis配置文件 -->
         <property name="configLocation" value="classpath:mybatis/sqlMapConfig.xml"/>
         <!-- 配置实体扫描路径，多个package可以用分号; 逗号, 分隔， 支持通配符*-->
-        <property name="typeAliasesPackage" value="jit.wxs.pojo"/>
+        <property name="typeAliasesPackage" value="jit.wxs.manager.pojo"/>
         <property name="plugins">
             <array>
                 <!-- 分页插件配置 -->
@@ -78,6 +78,6 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Mapper批量扫描 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="jit.wxs.mapper"/>
+        <property name="basePackage" value="jit.wxs.manager.mapper"/>
     </bean>
 </beans>

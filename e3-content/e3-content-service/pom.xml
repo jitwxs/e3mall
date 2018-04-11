@@ -90,5 +90,4 @@
             <artifactId>curator-framework</artifactId>
         </dependency>
     </dependencies>
-
 </project>

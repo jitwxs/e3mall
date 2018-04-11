@@ -41,7 +41,7 @@
 
     <!-- 配置AOP -->
     <aop:config>
-        <aop:advisor advice-ref="txAdvice" pointcut="execution(* jit.wxs.service.impl.*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut="execution(* jit.wxs.manager.service.impl.*.*(..))"/>
     </aop:config>
 
 </beans>

@@ -3,8 +3,8 @@ package jit.wxs.content.service.impl;
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
 import jit.wxs.common.utils.E3Result;
 import jit.wxs.content.service.TbContentCategoryService;
-import jit.wxs.mapper.TbContentCategoryMapper;
-import jit.wxs.pojo.TbContentCategory;
+import jit.wxs.manager.mapper.TbContentCategoryMapper;
+import jit.wxs.manager.pojo.TbContentCategory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

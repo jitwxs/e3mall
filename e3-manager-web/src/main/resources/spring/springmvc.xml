@@ -14,7 +14,7 @@
     <context:property-placeholder location="classpath:cfg.properties"/>
 
     <!-- 扫描组件 -->
-    <context:component-scan base-package="jit.wxs.web"/>
+    <context:component-scan base-package="jit.wxs.manager.web"/>
 
     <!-- 注解驱动 -->
     <mvc:annotation-driven />
@@ -42,10 +42,10 @@
     <dubbo:registry protocol="zookeeper" address="${zookeeper.address}"/>
     <!-- 申明要访问的接口，并创建代理对象，注入bean，名为id的值 -->
     <!-- 注册于e3-manager-service -->
-    <dubbo:reference interface="jit.wxs.service.TbItemService" id="tbItemService" />
-    <dubbo:reference interface="jit.wxs.service.TbItemParamService" id="rbItemParamService" />
-    <dubbo:reference interface="jit.wxs.service.TbItemDescService" id="tbItemDescService"/>
-    <dubbo:reference interface="jit.wxs.service.TbItemCatService" id="tbItemCatService" />
+    <dubbo:reference interface="jit.wxs.manager.service.TbItemService" id="tbItemService" />
+    <dubbo:reference interface="jit.wxs.manager.service.TbItemParamService" id="rbItemParamService" />
+    <dubbo:reference interface="jit.wxs.manager.service.TbItemDescService" id="tbItemDescService"/>
+    <dubbo:reference interface="jit.wxs.manager.service.TbItemCatService" id="tbItemCatService" />
     <!-- 注册于e3-content-service -->
     <dubbo:reference interface="jit.wxs.content.service.TbContentService" id="tbContentService" />
     <dubbo:reference interface="jit.wxs.content.service.TbContentCategoryService" id="tbContentCategoryService" />

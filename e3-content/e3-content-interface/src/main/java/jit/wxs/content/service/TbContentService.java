@@ -1,7 +1,7 @@
 package jit.wxs.content.service;
 
 import com.baomidou.mybatisplus.service.IService;
-import jit.wxs.pojo.TbContent;
+import jit.wxs.manager.pojo.TbContent;
 
 import java.util.List;
 

@@ -1,8 +1,7 @@
 package jit.wxs.portal.web;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import jit.wxs.content.service.TbContentService;
-import jit.wxs.pojo.TbContent;
+import jit.wxs.manager.pojo.TbContent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

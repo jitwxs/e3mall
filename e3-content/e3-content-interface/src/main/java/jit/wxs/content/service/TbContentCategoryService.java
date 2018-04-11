@@ -2,7 +2,7 @@ package jit.wxs.content.service;
 
 import com.baomidou.mybatisplus.service.IService;
 import jit.wxs.common.utils.E3Result;
-import jit.wxs.pojo.TbContentCategory;
+import jit.wxs.manager.pojo.TbContentCategory;
 
 /**
  * <p>
