@@ -12,7 +12,7 @@
 
 #### 运行项目
 
-（1）Linux服务器需要搭建Zookeeper、Redis、Tomcat环境。
+（1）Linux服务器需要搭建Tomcat、Zookeeper、Redis、Solr环境。
 
 - [Linux搭建JavaWeb开发环境（Java、Tomcat、MySQL）](https://blog.csdn.net/yuanlaijike/article/details/78877830)
 
@@ -20,7 +20,9 @@
 
 - [Redis初探（6）——Redis集群](https://blog.csdn.net/yuanlaijike/article/details/79860099)
 
-（2）修改数据库、Zookeeper、Redis、腾讯云COS的配置信息
+- [Solr初探（1）——Solr介绍（基于Solr 6.6.2）](https://blog.csdn.net/yuanlaijike/article/details/79465627)
+
+（2）修改数据库、Zookeeper、Redis、Solr、腾讯云COS的配置信息
 
 
 ### 系统架构

@@ -41,12 +41,15 @@
     <!-- 指定zookeeper的地址，集群用逗号分隔 -->
     <dubbo:registry protocol="zookeeper" address="${zookeeper.address}"/>
     <!-- 申明要访问的接口，并创建代理对象，注入bean，名为id的值 -->
-    <!-- 注册于e3-manager-service -->
+    <!-- 注册于e3-manager -->
     <dubbo:reference interface="jit.wxs.manager.service.TbItemService" id="tbItemService" />
     <dubbo:reference interface="jit.wxs.manager.service.TbItemParamService" id="rbItemParamService" />
     <dubbo:reference interface="jit.wxs.manager.service.TbItemDescService" id="tbItemDescService"/>
     <dubbo:reference interface="jit.wxs.manager.service.TbItemCatService" id="tbItemCatService" />
-    <!-- 注册于e3-content-service -->
+    <!-- 注册于e3-content -->
     <dubbo:reference interface="jit.wxs.content.service.TbContentService" id="tbContentService" />
     <dubbo:reference interface="jit.wxs.content.service.TbContentCategoryService" id="tbContentCategoryService" />
+    <!-- 注册于e3-search -->
+    <dubbo:reference interface="jit.wxs.search.service.SearchItemService" id="searchItemService" />
+
 </beans>

@@ -31,6 +31,6 @@
     <!-- 指定zookeeper的地址，集群用逗号分隔 -->
     <dubbo:registry protocol="zookeeper" address="${zookeeper.address}"/>
     <!-- 申明要访问的接口，并创建代理对象，注入bean，名为id的值 -->
-    <!-- 注册于e3-content-service -->
+    <!-- 注册于e3-content -->
     <dubbo:reference interface="jit.wxs.content.service.TbContentService" id="tbContentService" />
 </beans>

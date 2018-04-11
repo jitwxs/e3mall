@@ -42,7 +42,7 @@ public class E3Result implements Serializable {
     }
 
     public static E3Result error(String msg) {
-        return E3Result.build(404,msg,null);
+        return E3Result.build(500,msg,null);
     }
 
     public static E3Result error(String msg, Object data) {

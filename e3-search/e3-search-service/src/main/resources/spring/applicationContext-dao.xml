@@ -78,6 +78,6 @@ http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!-- Mapper批量扫描 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="jit.wxs.manager.mapper"/>
+        <property name="basePackage" value="jit.wxs.manager.mapper,jit.wxs.search.mapper"/>
     </bean>
 </beans>
