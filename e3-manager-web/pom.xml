@@ -9,7 +9,7 @@
     <artifactId>e3-manager-web</artifactId>
     <packaging>war</packaging>
     <name>e3-manager-web Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+    <url>http://www.jitwxs.cn</url>
 
     <dependencies>
         <dependency>

@@ -1,7 +1,9 @@
 package jit.wxs.manager.service.impl;
 
 import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import jit.wxs.common.jedis.JedisClient;
 import jit.wxs.common.utils.IDUtils;
+import jit.wxs.common.utils.JsonUtils;
 import jit.wxs.manager.mapper.TbItemDescMapper;
 import jit.wxs.manager.mapper.TbItemMapper;
 import jit.wxs.manager.mapper.TbItemParamItemMapper;
@@ -9,7 +11,9 @@ import jit.wxs.manager.pojo.TbItem;
 import jit.wxs.manager.pojo.TbItemDesc;
 import jit.wxs.manager.pojo.TbItemParamItem;
 import jit.wxs.manager.service.TbItemService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
@@ -41,6 +45,15 @@ public class TbItemServiceImpl extends ServiceImpl<TbItemMapper, TbItem> impleme
 
     @Resource
     private Destination addItemDestination;
+
+    @Autowired
+    private JedisClient jedisClient;
+
+    @Value("${redis.item.pre}")
+    private String redisItemPre;
+
+    @Value("${redis.item.expire}")
+    private int redisItemExpire;
 
     @Override
     public boolean insert(TbItem item, String desc, String itemParams) {
@@ -75,5 +88,28 @@ public class TbItemServiceImpl extends ServiceImpl<TbItemMapper, TbItem> impleme
         jmsTemplate.send(addItemDestination, session -> session.createTextMessage(id+""));
 
         return true;
+    }
+
+    @Override
+    public TbItem getById(Long id) {
+        String redisKey = redisItemPre + ":" + id + ":BASE";
+        try{
+            String json = jedisClient.get(redisKey);
+            if(StringUtils.isNotBlank(json)) {
+                return JsonUtils.jsonToPojo(json, TbItem.class);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        TbItem item = itemMapper.selectById(id);
+
+        try{
+            jedisClient.set(redisKey, JsonUtils.objectToJson(item));
+            jedisClient.expire(redisKey,redisItemExpire);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return item;
     }
 }

@@ -12,5 +12,5 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2018-03-21
  */
 public interface TbItemDescService extends IService<TbItemDesc> {
-
+    TbItemDesc geyById(Long id);
 }

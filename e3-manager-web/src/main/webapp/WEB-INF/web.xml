@@ -7,7 +7,7 @@
 
     <!-- Spring MVC 前端控制器 -->
     <servlet>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>e3-manager-web</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
@@ -15,7 +15,7 @@
         </init-param>
     </servlet>
     <servlet-mapping>
-        <servlet-name>springmvc</servlet-name>
+        <servlet-name>e3-manager-web</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 

@@ -49,7 +49,7 @@
          <li>
             <div class="l-wrap">
 				<div class="pic">
-					<a class="trackref" href="http://localhost:8086/item/${item.id}.html" title="" target="_blank">
+					<a class="trackref" href="http://localhost:8083/item/${item.id}.html" title="" target="_blank">
 						<img src="${item.images[0] }" style="display:inline"/>
 					</a>
 				</div>
@@ -57,9 +57,9 @@
 					<span><span class="p-now">￥<strong><fmt:formatNumber groupingUsed="false" maxFractionDigits="2" minFractionDigits="2" value="${item.price / 100 }"/></strong></span><span class="p-nor"></span><span class="active" style="">直降</span></span>			
 				</div>
 	            <div class="title-a">
-	                <a class="trackref presaleSign_225865" href="http://localhost:8086/item/${item.id}.html" target="_blank">${item.title }</a>
+	                <a class="trackref presaleSign_225865" href="http://localhost:8083/item/${item.id}.html" target="_blank">${item.title }</a>
 	            </div>
-	        	<div class="title-b" style=""><a class="trackref" href="http://localhost:8086/item/${item.id}.html" target="_blank">${sell_point }</a></div>
+	        	<div class="title-b" style=""><a class="trackref" href="http://localhost:8083/item/${item.id}.html" target="_blank">${sell_point }</a></div>
 	            <div class="comment">
 	                <div class="owner_shop_list">自营</div>                    
 	            </div>

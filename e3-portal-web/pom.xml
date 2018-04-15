@@ -10,7 +10,7 @@
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
     <name>e3-portal-web Maven Webapp</name>
-    <url>http://maven.apache.org</url>
+    <url>http://www.jitwxs.cn</url>
     <dependencies>
         <dependency>
             <groupId>jit.wxs</groupId>
