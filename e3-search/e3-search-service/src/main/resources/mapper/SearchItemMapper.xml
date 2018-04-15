@@ -15,4 +15,21 @@
 		WHERE
 			a.status = 1
     </select>
+
+	<select id="getById" parameterType="Long" resultType="jit.wxs.common.pojo.SearchItem">
+        SELECT
+			a.id,
+			a.title,
+			a.sell_point sellPoint,
+			a.price,
+			a.image,
+			b.name categoryName
+		FROM
+			tb_item a
+		LEFT JOIN tb_item_cat b ON a.cid = b.id
+		WHERE
+			a.status = 1
+		AND
+			a.id = #{id}
+    </select>
 </mapper>

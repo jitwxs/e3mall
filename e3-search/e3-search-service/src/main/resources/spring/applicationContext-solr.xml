@@ -10,8 +10,14 @@
     <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:cfg.properties"/>
 
-    <!-- 初始化HttpSolrClient -->
-    <bean id="httpSolrClient" class="org.apache.solr.client.solrj.impl.HttpSolrClient">
-        <constructor-arg index="0" value="${solr.url}"/>
+    <!-- 单机版Solr -->
+    <!--<bean id="httpSolrClient" class="org.apache.solr.client.solrj.impl.HttpSolrClient">-->
+        <!--<constructor-arg name="baseURL" value="${solr.standalone.url}"/>-->
+    <!--</bean>-->
+
+    <!-- 集群版Solr -->
+    <bean id="cloudSolrClient" class="org.apache.solr.client.solrj.impl.CloudSolrClient">
+        <constructor-arg name="zkHost" value="${solr.cluster.host}"/>
+        <property name="defaultCollection" value="${solr.cluster.collection}"/>
     </bean>
 </beans>

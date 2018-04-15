@@ -12,4 +12,6 @@ import java.util.List;
 public interface SearchItemMapper {
 
     List<SearchItem> listSearchItem();
+
+    SearchItem getById(Long id);
 }

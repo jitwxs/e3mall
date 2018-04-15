@@ -2,27 +2,44 @@
 
 ### 技术栈
 
-- 项目环境采用`IDEA` + `MAVEN` + `Tomcat` + `MySQL`，数据库连接池采用`Druid`
+- 项目环境采用`IDEA` + `MAVEN` + `Tomcat` + `MySQL`，数据库连接池采用`Druid`，采用`SOA` 架构
 
 - 后台采用SSM，使用`MP(Mybatis-plus)`替代`MyBatis`
 
-- 采用`SOA` 架构，使用`Dubbo` + `Zookeeper`进行服务治理
+- 服务中间件：`Dubbo` + `Zookeeper`
 
-- 图片服务器使用`腾讯云`替代`FastDFS`
+- 消息中间件：`ActiveMQ`
+
+- 图片服务：`腾讯云`
+
+- 搜索服务：`Solr`
+
+- 缓存服务：`Redis`
 
 #### 运行项目
 
-（1）Linux服务器需要搭建Tomcat、Zookeeper、Redis、Solr环境。
+（1）搭建单机/集群环境。
 
-- [Linux搭建JavaWeb开发环境（Java、Tomcat、MySQL）](https://blog.csdn.net/yuanlaijike/article/details/78877830)
+- Tomcat
+ - [Linux搭建JavaWeb开发环境（Java、Tomcat、MySQL）](https://blog.csdn.net/yuanlaijike/article/details/78877830)
+ - [Linux部署多台Tomcat](https://blog.csdn.net/yuanlaijike/article/details/79692794)
+ 
+- Zookeeper、ZookeeperCluster
+ - [Dubbo + Zookeeper入门初探](https://blog.csdn.net/yuanlaijike/article/details/79654183)
+ - [Zookeper集群搭建](https://blog.csdn.net/yuanlaijike/article/details/79916792)
 
-- [Dubbo + Zookeeper入门初探](https://blog.csdn.net/yuanlaijike/article/details/79654183)
+- Redis
+ - [Redis初探（1）——Redis的安装](https://blog.csdn.net/yuanlaijike/article/details/79383242)
+ - [Redis初探（6）——Redis集群](https://blog.csdn.net/yuanlaijike/article/details/79860099)
 
-- [Redis初探（6）——Redis集群](https://blog.csdn.net/yuanlaijike/article/details/79860099)
+- Solr、SolrCloud
+ - [Solr初探（1）——Solr介绍（基于Solr 6.6.2）](https://blog.csdn.net/yuanlaijike/article/details/79465627)
+ - [Solr初探（6）——SolrCloud](https://blog.csdn.net/yuanlaijike/article/details/79919301)
 
-- [Solr初探（1）——Solr介绍（基于Solr 6.6.2）](https://blog.csdn.net/yuanlaijike/article/details/79465627)
+- ActiveMQ
+ - [ActiveMQ介绍、使用并与Spring整合](https://blog.csdn.net/yuanlaijike/article/details/79950330)
 
-（2）修改数据库、Zookeeper、Redis、Solr、腾讯云COS的配置信息
+（2）修改数据库、Zookeeper、Redis、Solr、ActiveMQ、腾讯云COS的配置信息
 
 
 ### 系统架构

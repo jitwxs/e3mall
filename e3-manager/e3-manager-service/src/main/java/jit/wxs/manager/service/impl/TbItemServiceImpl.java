@@ -5,13 +5,16 @@ import jit.wxs.common.utils.IDUtils;
 import jit.wxs.manager.mapper.TbItemDescMapper;
 import jit.wxs.manager.mapper.TbItemMapper;
 import jit.wxs.manager.mapper.TbItemParamItemMapper;
-import jit.wxs.manager.service.TbItemService;
 import jit.wxs.manager.pojo.TbItem;
 import jit.wxs.manager.pojo.TbItemDesc;
 import jit.wxs.manager.pojo.TbItemParamItem;
+import jit.wxs.manager.service.TbItemService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+import javax.jms.Destination;
 import java.util.Date;
 
 /**
@@ -33,10 +36,15 @@ public class TbItemServiceImpl extends ServiceImpl<TbItemMapper, TbItem> impleme
     @Autowired
     private TbItemParamItemMapper itemParamItemMapper;
 
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @Resource
+    private Destination addItemDestination;
+
     @Override
     public boolean insert(TbItem item, String desc, String itemParams) {
         Date date = new Date();
-
         long id = IDUtils.genItemId();
         // 商品状态，1-正常，2-下架，3-删除
         item.setId(id);
@@ -59,6 +67,13 @@ public class TbItemServiceImpl extends ServiceImpl<TbItemMapper, TbItem> impleme
         itemParamItem.setUpdated(date);
         int k = itemParamItemMapper.insert(itemParamItem);
 
-        return i == 1 && j == 1 && k == 1;
+        if(!(i == 1 && j == 1 && k == 1)) {
+            return false;
+        }
+
+        // 将商品Id放入ActiveMQ的Topic
+        jmsTemplate.send(addItemDestination, session -> session.createTextMessage(id+""));
+
+        return true;
     }
 }

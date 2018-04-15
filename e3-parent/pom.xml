@@ -37,6 +37,9 @@
         <jedis.version>2.9.0</jedis.version>
         <!-- Solr客户端 -->
         <solrj.version>6.6.2</solrj.version>
+        <!-- ActiveMQ -->
+        <activemq.version>5.15.3</activemq.version>
+        <jms-api.version>2.0.1</jms-api.version>
         <!-- 腾讯云相关 -->
         <cos_api.version>5.2.4</cos_api.version>
     </properties>
@@ -145,6 +148,16 @@
                 <artifactId>spring-tx</artifactId>
                 <version>${spring.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jms</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>javax.jms</groupId>
+                <artifactId>javax.jms-api</artifactId>
+                <version>${jms-api.version}</version>
+            </dependency>
             <!-- 服务中间件 -->
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -196,6 +209,12 @@
                 <groupId>org.apache.solr</groupId>
                 <artifactId>solr-solrj</artifactId>
                 <version>${solrj.version}</version>
+            </dependency>
+            <!-- ActiveMQ -->
+            <dependency>
+                <groupId>org.apache.activemq</groupId>
+                <artifactId>activemq-all</artifactId>
+                <version>${activemq.version}</version>
             </dependency>
             <!-- 腾讯云相关 -->
              <dependency>

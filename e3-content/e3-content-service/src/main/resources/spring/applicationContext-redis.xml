@@ -7,8 +7,6 @@
 	http://www.springframework.org/schema/context
 	http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- 注意：单机和集群同时只能放开一个 -->
-
     <!-- 加载配置文件 -->
     <context:property-placeholder location="classpath:cfg.properties"/>
 

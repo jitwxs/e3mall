@@ -19,6 +19,9 @@
     <!-- 注解驱动 -->
     <mvc:annotation-driven />
 
+    <!-- 全局异常处理 -->
+    <bean class="jit.wxs.search.exception.GlobalExceptionResolver "/>
+
     <!-- 视图解析器 -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/jsp/" />
