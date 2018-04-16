@@ -1,6 +1,5 @@
 package jit.wxs.item.web;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import jit.wxs.item.dto.TbItemDto;
 import jit.wxs.manager.pojo.TbItem;
 import jit.wxs.manager.pojo.TbItemDesc;
@@ -29,8 +28,8 @@ public class ItemController {
         TbItemDto itemDto = new TbItemDto(item);
         TbItemDesc itemDesc = tbItemDescService.geyById(itemId);
 
-        model.addAttribute("item",itemDto);
-        model.addAttribute("itemDesc",itemDesc);
+        model.addAttribute("item", itemDto);
+        model.addAttribute("itemDesc", itemDesc);
         return "item";
     }
 }

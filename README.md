@@ -16,30 +16,30 @@
 
 - 缓存服务：`Redis`
 
-#### 运行项目
+### 运行项目
 
-（1）搭建单机/集群环境。
+首先需要搭建相关环境：
 
-- Tomcat
- - [Linux搭建JavaWeb开发环境（Java、Tomcat、MySQL）](https://blog.csdn.net/yuanlaijike/article/details/78877830)
- - [Linux部署多台Tomcat](https://blog.csdn.net/yuanlaijike/article/details/79692794)
+（1）Tomcat
+- [Linux搭建JavaWeb开发环境（Java、Tomcat、MySQL）](https://blog.csdn.net/yuanlaijike/article/details/78877830)
+- [Linux部署多台Tomcat](https://blog.csdn.net/yuanlaijike/article/details/79692794)
  
-- Zookeeper、ZookeeperCluster
- - [Dubbo + Zookeeper入门初探](https://blog.csdn.net/yuanlaijike/article/details/79654183)
- - [Zookeper集群搭建](https://blog.csdn.net/yuanlaijike/article/details/79916792)
+（2）Zookeeper、ZookeeperCluster
+- [Dubbo + Zookeeper入门初探](https://blog.csdn.net/yuanlaijike/article/details/79654183)
+- [Zookeper集群搭建](https://blog.csdn.net/yuanlaijike/article/details/79916792)
 
-- Redis
- - [Redis初探（1）——Redis的安装](https://blog.csdn.net/yuanlaijike/article/details/79383242)
- - [Redis初探（6）——Redis集群](https://blog.csdn.net/yuanlaijike/article/details/79860099)
+（3）Redis
+- [Redis初探（1）——Redis的安装](https://blog.csdn.net/yuanlaijike/article/details/79383242)
+- [Redis初探（6）——Redis集群](https://blog.csdn.net/yuanlaijike/article/details/79860099)
 
-- Solr、SolrCloud
- - [Solr初探（1）——Solr介绍（基于Solr 6.6.2）](https://blog.csdn.net/yuanlaijike/article/details/79465627)
- - [Solr初探（6）——SolrCloud](https://blog.csdn.net/yuanlaijike/article/details/79919301)
+（4）Solr、SolrCloud
+- [Solr初探（1）——Solr介绍（基于Solr 6.6.2）](https://blog.csdn.net/yuanlaijike/article/details/79465627)
+- [Solr初探（6）——SolrCloud](https://blog.csdn.net/yuanlaijike/article/details/79919301)
 
-- ActiveMQ
- - [ActiveMQ介绍、使用并与Spring整合](https://blog.csdn.net/yuanlaijike/article/details/79950330)
+（5）ActiveMQ
+- [ActiveMQ介绍、使用并与Spring整合](https://blog.csdn.net/yuanlaijike/article/details/79950330)
 
-（2）修改数据库、Zookeeper、Redis、Solr、ActiveMQ、腾讯云COS的配置信息
+然后修改数据库、Zookeeper、Redis、Solr、ActiveMQ、腾讯云COS的配置信息
 
 
 ### 系统架构
