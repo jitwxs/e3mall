@@ -7,19 +7,26 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.util.List;
 
 /**
- * jackson工具类
+ * @className JsonUtils.java
+ * @author jitwxs
+ * @version 创建时间：2018年4月17日 下午3:39:04
+ * <dependency>
+ *      <groupId>com.fasterxml.jackson.core</groupId>
+ *      <artifactId>jackson-databind</artifactId>
+ *      <version>2.9.4</version>
+ * </dependency>
  */
 public class JsonUtils {
-
     private static final ObjectMapper MAPPER = new ObjectMapper();
 
     /**
-     * 将对象转换成json字符串。
+     * 对象-->Json字符串
+     * @author jitwxs
+     * @version 创建时间：2018年4月17日 下午3:39:35
      */
     public static String objectToJson(Object data) {
         try {
-            String string = MAPPER.writeValueAsString(data);
-            return string;
+            return MAPPER.writeValueAsString(data);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
@@ -27,12 +34,13 @@ public class JsonUtils {
     }
 
     /**
-     * 将json结果集转化为对象
+     * Json字符串-->对象
+     * @author jitwxs
+     * @version 创建时间：2018年4月17日 下午3:39:45
      */
     public static <T> T jsonToPojo(String jsonData, Class<T> beanType) {
         try {
-            T t = MAPPER.readValue(jsonData, beanType);
-            return t;
+            return MAPPER.readValue(jsonData, beanType);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -40,18 +48,18 @@ public class JsonUtils {
     }
 
     /**
-     * 将json数据转换成pojo对象list
+     * Json字符串--> List<对象>
+     * @author jitwxs
+     * @version 创建时间：2018年4月17日 下午3:40:09
      */
     public static <T> List<T> jsonToList(String jsonData, Class<T> beanType) {
         JavaType javaType = MAPPER.getTypeFactory().constructParametricType(List.class, beanType);
         try {
-            List<T> list = MAPPER.readValue(jsonData, javaType);
-            return list;
+            return MAPPER.readValue(jsonData, javaType);
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         return null;
     }
-
 }

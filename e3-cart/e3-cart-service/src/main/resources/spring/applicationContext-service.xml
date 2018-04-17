@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://code.alibabatech.com/schema/dubbo
+	http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath:cfg.properties"/>
+
+    <!-- 扫描service层注解 -->
+    <context:component-scan base-package="jit.wxs.cart.service"/>
+
+    <!-- dubbo发布服务 -->
+    <!-- 提供方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="e3-cart" />
+    <!-- 配置zookeeper的地址，集群地址用逗号隔开 -->
+    <dubbo:registry protocol="zookeeper" address="${zookeeper.address}" />
+    <!-- dubbo协议暴露服务的端口 -->
+    <dubbo:protocol name="dubbo" port="${dubbo.port}" />
+    <!-- 声明需要暴露的服务接口
+        ref：为注入的对应接口的bean
+        timneout：超时时间，单位ms，开发模式可以设长一点方便debug
+    -->
+    <dubbo:service interface="jit.wxs.cart.service.CartService" ref="cartServiceImpl" timeout="${zookeeper.timeout}"/>
+</beans>

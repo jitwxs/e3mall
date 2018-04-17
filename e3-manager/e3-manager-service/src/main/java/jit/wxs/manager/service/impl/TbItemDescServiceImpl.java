@@ -66,4 +66,12 @@ public class TbItemDescServiceImpl extends ServiceImpl<TbItemDescMapper, TbItemD
         }
         return itemDesc;
     }
+
+    @Override
+    public boolean updateByItemId(TbItemDesc itemDesc) {
+        itemDescMapper.update(itemDesc,
+                new EntityWrapper<TbItemDesc>().eq("item_id", itemDesc.getItemId()));
+
+        return true;
+    }
 }

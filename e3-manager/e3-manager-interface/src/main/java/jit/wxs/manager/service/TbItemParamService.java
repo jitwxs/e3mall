@@ -1,7 +1,9 @@
 package jit.wxs.manager.service;
 
-import jit.wxs.manager.pojo.TbItemParam;
 import com.baomidou.mybatisplus.service.IService;
+import jit.wxs.manager.pojo.TbItemParam;
+
+import java.util.List;
 
 /**
  * <p>
@@ -12,5 +14,5 @@ import com.baomidou.mybatisplus.service.IService;
  * @since 2018-03-21
  */
 public interface TbItemParamService extends IService<TbItemParam> {
-
+    List<TbItemParam> selectByItemCatId(Long itemCatId);
 }

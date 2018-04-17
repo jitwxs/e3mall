@@ -20,4 +20,9 @@ public class PageController {
     public String showPage(@PathVariable String page) {
         return page;
     }
+
+    @RequestMapping("/rest/page/item-edit")
+    public String showItemEdit() {
+        return "item-edit";
+    }
 }

@@ -6,7 +6,7 @@
 <div id="header">
   <div class="header_inner">
     <div class="logo">
-			<a name="sfbest_hp_hp_head_logo" href="http://www.e3mall.cn" class="trackref logoleft">
+			<a name="sfbest_hp_hp_head_logo" href="http://localhost:8080" class="trackref logoleft">
 		</a>
 			<div class="logo-text">
 				<img src="/images/html/logo_word.jpg">

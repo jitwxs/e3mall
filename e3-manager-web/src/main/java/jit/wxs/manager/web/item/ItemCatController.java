@@ -29,8 +29,7 @@ public class ItemCatController {
      */
     @PostMapping("/list")
     public List<EasyUITreeNode> getItemCat(@RequestParam(required = false, defaultValue = "0") Long id) {
-        List<TbItemCat> itemCats = tbItemCatService.selectList(new EntityWrapper<TbItemCat>()
-                .eq("parent_id", id));
+        List<TbItemCat> itemCats = tbItemCatService.selectByParentId(id);
 
         List<EasyUITreeNode> result = new ArrayList<>();
 

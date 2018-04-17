@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 加载配置文件 -->
+    <context:property-placeholder location="classpath:cfg.properties"/>
+
+    <!-- 扫描组件 -->
+    <context:component-scan base-package="jit.wxs.order.web"/>
+
+    <!-- 注解驱动 -->
+    <mvc:annotation-driven />
+
+    <!-- 视图解析器 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+
+    <!-- 注册拦截器 -->
+    <mvc:interceptors>
+        <!-- Order拦截器 -->
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="jit.wxs.order.interceptor.OrderInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 引用dubbo服务 -->
+    <!-- 使用方应用信息，用于计算依赖关系 -->
+    <dubbo:application name="e3-order-web"/>
+    <!-- 指定zookeeper的地址，集群用逗号分隔 -->
+    <dubbo:registry protocol="zookeeper" address="${zookeeper.address}"/>
+    <!-- 申明要访问的接口，并创建代理对象，注入bean，名为id的值 -->
+    <!-- 注册于e3-cart -->
+    <dubbo:reference interface="jit.wxs.cart.service.CartService" id="cartService" />
+    <!-- 注册于e3-sso -->
+    <dubbo:reference interface="jit.wxs.sso.service.TokenService" id="tokenService" />
+    <!-- 注册于e3-order -->
+    <dubbo:reference interface="jit.wxs.order.service.OrderService" id="orderService" />
+</beans>

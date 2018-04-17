@@ -57,3 +57,29 @@
 - **单点登录系统**：为多个系统之间提供用户登录凭证以及查询登录用户的信息。
 
 ![](https://raw.githubusercontent.com/ZzXxL1994/e3mall/master/jiagou.png)
+
+
+### 运行地址
+
+#### 服务提供
+
+|名称|地址|
+|:---|:---:|
+|e3-manager-service|localhost:8180|
+|e3-content-service|localhost:8181|
+|e3-search-service|localhost:8182|
+|e3-sso-service|localhost:8183|
+|e3-cat-service|localhost:8184|
+|e3-order-service|localhost:8185|
+
+#### 表现提供
+
+|名称|地址|
+|:---|:---:|
+|e3-portal-web|localhost:8080|
+|e3-manager-web|localhost:8081|
+|e3-search-web|localhost:8082|
+|e3-item-web|localhost:8083|
+|e3-sso-web|localhost:8084|
+|e3-cat-web|localhost:8085|
+|e3-order-web|localhost:8086|

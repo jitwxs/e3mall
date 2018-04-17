@@ -19,13 +19,13 @@ public class SearchController {
     private SearchService searchService;
 
     @Value("${search.rows}")
-    private Integer rows;
+    private Integer SEARCH_ROWS;
 
     @RequestMapping("/search")
     public String search(String keyword, @RequestParam(defaultValue = "1") Integer page, Model model) {
         try {
             keyword = new String(keyword.getBytes("iso-8859-1"), "utf-8");
-            SearchItemResult result = searchService.search(keyword, page, rows);
+            SearchItemResult result = searchService.search(keyword, page, SEARCH_ROWS);
 
             model.addAttribute("page",page);
             model.addAttribute("totalPages",result.getTotalPages());

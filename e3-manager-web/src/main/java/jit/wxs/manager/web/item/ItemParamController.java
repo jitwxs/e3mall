@@ -37,9 +37,9 @@ public class ItemParamController {
 
     @GetMapping("/query/itemcatid/{id}")
     public E3Result getItemCatParam(@PathVariable Long id) {
-        List<TbItemParam> params = tbItemParamService.selectList(new EntityWrapper<TbItemParam>()
-                .eq("item_cat_id", id));
-        if (params.size() == 0) {
+        List<TbItemParam> params = tbItemParamService.selectByItemCatId(id);
+
+        if (params == null || params.size() == 0) {
             return E3Result.error(null);
         } else {
             return E3Result.ok(params.get(0));

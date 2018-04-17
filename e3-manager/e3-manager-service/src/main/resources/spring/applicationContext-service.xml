@@ -28,7 +28,8 @@
         timneout：超时时间，单位ms，开发模式可以设长一点方便debug
     -->
     <dubbo:service interface="jit.wxs.manager.service.TbItemService" ref="tbItemServiceImpl" timeout="${zookeeper.timeout}"/>
-    <dubbo:service interface="jit.wxs.manager.service.TbItemParamService" ref="tbItemParamServiceImpl" timeout="${zookeeper.timeout}"/>
     <dubbo:service interface="jit.wxs.manager.service.TbItemDescService" ref="tbItemDescServiceImpl" timeout="${zookeeper.timeout}"/>
     <dubbo:service interface="jit.wxs.manager.service.TbItemCatService" ref="tbItemCatServiceImpl" timeout="${zookeeper.timeout}"/>
+    <dubbo:service interface="jit.wxs.manager.service.TbItemParamService" ref="tbItemParamServiceImpl" timeout="${zookeeper.timeout}"/>
+    <dubbo:service interface="jit.wxs.manager.service.TbItemParamItemService" ref="tbItemParamItemServiceImpl" timeout="${zookeeper.timeout}"/>
 </beans>
