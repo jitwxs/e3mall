@@ -1,5 +1,8 @@
 ## 宜立方商城
 
+- 使用 MyBatisPlus 替代 Mybatis ，简化 DAO 层操作。
+- 使用腾讯云图片服务替代 FastDFS ，无需搭建图片服务器。
+
 ### 技术栈
 
 - 项目环境采用`IDEA` + `MAVEN` + `Tomcat` + `MySQL`，数据库连接池采用`Druid`，采用`SOA` 架构
@@ -41,7 +44,6 @@
 
 然后修改数据库、Zookeeper、Redis、Solr、ActiveMQ、腾讯云COS的配置信息
 
-
 ### 系统架构
 
 - **后台管理系统**：管理商品、订单、类目、商品规格属性、用户管理以及内容发布等功能。
@@ -57,7 +59,6 @@
 - **单点登录系统**：为多个系统之间提供用户登录凭证以及查询登录用户的信息。
 
 ![](https://raw.githubusercontent.com/ZzXxL1994/e3mall/master/jiagou.png)
-
 
 ### 运行地址
 
